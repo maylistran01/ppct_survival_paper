@@ -1,6 +1,5 @@
 ---
 title: "Prediction-Powered Inference in Clinical Trials with Survival Outcomes"
-output: github_document
 ---
 
 ## Overview
@@ -10,15 +9,15 @@ This repository contains the code supporting the paper:
 **Prediction-Powered Inference in Clinical Trials with Survival Outcomes**  
 *Under review*
 
-Recruiting patients for clinical trials in rare neurodegenerative diseases is challenging due to ethical concerns surrounding placebo enrollment and difficulties in achieving sufficient statistical power. **Prediction-Powered Inference for Clinical Trials (PPCT)** provides a principled way to improve efficiency by leveraging external predictive models.
+Recruiting patients for clinical trials in rare neurodegenerative diseases is challenging due to ethical concerns surrounding placebo enrollment and difficulties in achieving sufficient statistical power. Prediction-Powered Inference for Clinical Trials (PPCT) provides a principled way to improve efficiency by leveraging external predictive models.
 
 In this work, we extend PPCT to **time-to-event outcomes** by focusing on the **Restricted Mean Survival Time (RMST)**, a survival summary measure that:
 - Remains within a linear framework
 - Allows direct comparison of average survival via differences in means
 
-We compute **individual-level RMST pseudo-values** and use external models trained on observational data to predict **counterfactual RMST pseudo-values**. These predictions are then incorporated into the PPCT framework to strengthen statistical inference.
+We compute individual-level RMST pseudo-values and use external models trained on observational data to predict counterfactual RMST pseudo-values. These predictions are then incorporated into the PPCT framework to strengthen statistical inference.
 
-The method is evaluated through simulation studies and applied to the **Trophos ALS clinical trial**, where we show that **49 out of 511 patients** could be removed while maintaining equivalent statistical power.
+The method is evaluated through simulation studies and applied to the Trophos ALS clinical trial, where we show that 49 out of 511 patients could be removed while maintaining equivalent statistical power.
 
 ---
 
