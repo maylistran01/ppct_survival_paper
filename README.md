@@ -1,7 +1,3 @@
----
-title: "Prediction-Powered Inference in Clinical Trials with Survival Outcomes"
----
-
 ## Overview
 
 This repository contains the code supporting the paper:
