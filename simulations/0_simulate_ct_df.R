@@ -12,7 +12,7 @@ n_values  <- c(30, 100, 200, 1000)
 ve_values <- c(5, 10, 20, 30,40,50,60,70,80, 90)
 fc_values <- seq(0.1, 0.9, 0.1)
 
-root_dir <- "sim_ct_df"
+root_dir <- "sim_ct_df_with_censore"
 if (!dir.exists(root_dir)) dir.create(root_dir)
 
 
@@ -21,6 +21,10 @@ if (!dir.exists(root_dir)) dir.create(root_dir)
 # -----------------------------------------------------------
 fixed_ve <- 20
 fixed_hr <- 1 - fixed_ve/100
+
+rcens <- function(n, rate = 0.5) {
+  rexp(n, rate = rate)
+}
 
 for (n in n_values) {
   for (fc in fc_values) {
@@ -40,13 +44,19 @@ for (n in n_values) {
       hr_vector <- ifelse(group == 0, 1, fixed_hr)
       
       sim_time <- s_events$rsurvhr(hr_vector)
-      cevent   <- censor_event(censor_time = ftime, time = sim_time, event = 1)
-      ctime    <- censor_time(censor_time = ftime, time = sim_time)
+      #cevent   <- censor_event(censor_time = ftime, time = sim_time, event = 1)
+      #ctime    <- censor_time(censor_time = ftime, time = sim_time)
+      censor_time_random <- rcens(2*n, rate = 0.5)
+      ctime  <- pmin(sim_time, censor_time_random, ftime)
+      cevent <- as.integer(sim_time <= censor_time_random & sim_time <= ftime)
       
       # Counterfactual time from control distribution
       counterfactual_time_full <- s_events$rsurvhr(rep(1, 2*n))   # hr=1 → untreated
-      counter_time  <- censor_time(censor_time = ftime, time = counterfactual_time_full)
-      counter_event <- censor_event(censor_time = ftime, time = counterfactual_time_full, event = 1)
+      #counter_time  <- censor_time(censor_time = ftime, time = counterfactual_time_full)
+      #counter_event <- censor_event(censor_time = ftime, time = counterfactual_time_full, event = 1)
+      counter_censor <- rcens(2*n, rate = 0.5)
+      counter_time  <- pmin(counterfactual_time_full, counter_censor, ftime)
+      counter_event <- as.integer(counterfactual_time_full <= counter_censor & counterfactual_time_full <= ftime)
       
       # Keep counterfactual values only for treated; NA for controls
       counter_time[group == 0]  <- NA

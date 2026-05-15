@@ -13,3 +13,13 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+.RData
+.Rhistory
+.vscode/
+.idea/
+outputs/
+sim_outputs_*/
+sim_ct_df*/
+_data/
+
