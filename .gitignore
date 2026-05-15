@@ -14,12 +14,18 @@ venv/
 .DS_Store
 Thumbs.db
 
+# R 
 .RData
 .Rhistory
+
+# IDE
 .vscode/
 .idea/
-outputs/
+
+# Large generated data
 sim_outputs_*/
 sim_ct_df*/
-_data/
 
+# Private data
+outputs/
+_data/
