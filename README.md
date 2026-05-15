@@ -33,7 +33,7 @@ The method is evaluated through simulation studies and applied to the Trophos AL
 │   └── utils_process.py
 │
 ├── simulations/
-│   ├── 0_simulate_ct_df.R
+│   ├── 0_simulate_ct_df_v2.R
 │   ├── 1_simulate_RMST_preds.ipynb
 │   ├── 2_simulations_analysis_ADEMP.ipynb
 │   └── sim_outputs_1000/
@@ -47,14 +47,14 @@ The method is evaluated through simulation studies and applied to the Trophos AL
 
 
 Simulation experiments are located in the `simulations/` directory and follow an ADEMP-style workflow.
-- `0_simulate_ct_df.R`
+- `0_simulate_ct_df_v2.R`
     - Generates simulated clinical trial datasets under different conditions.
-    - Simulation outputs are stored in: `simulations/sim_ct_df/`
+    - Simulation outputs will be stored in: `simulations/sim_ct_df/`
 - `1_simulate_RMST_preds.ipynb`
-    - Simulation outputs are stored in: `simulations/sim_outputs_1000/`
+    - Simulation outputs will be stored in: `simulations/sim_outputs_1000/`
 - `2_simulations_analysis_ADEMP.ipynb`
 Analyzes simulation outputs and produces:
-    - Tables 1 and 2
+    - Tables 1, 2 and 3
     - Figures 1 and 2
 
 
@@ -68,14 +68,14 @@ All analyses related to the real-data application are located in the `applicatio
 - `1_leaspy_ready.ipynb`
 - `2_cohorts_baseline_obs.ipynb`
     - Computes baseline descriptive statistics for the ALS cohorts.
-    - Corresponds to Table 3 in the paper.
+    - Corresponds to Table 4 in the paper.
 - `3_predict_rmst_all.ipynb`
 - `4_PPCT_computation_all.ipynb`
     - Implements the prediction-powered inference procedure using RMST pseudo-values.
-    - Corresponds to Table 4 in the paper.
+    - Corresponds to Table 5 in the paper.
 - `5_estimators_comparison.ipynb`
     - Compares standard estimators with prediction-powered estimators in terms of efficiency and variance reduction.
-    - Corresponds to Table 5 in the paper.
+    - Corresponds to Table 6 in the paper.
 
 
 

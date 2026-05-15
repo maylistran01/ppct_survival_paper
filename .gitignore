@@ -17,6 +17,7 @@ Thumbs.db
 # R 
 .RData
 .Rhistory
+simulations/0_simulate_ct_df.R
 
 # IDE
 .vscode/
